@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción a Conferencia de Lenguaje Natural</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Conferencia</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ponentes.html">Ponentes</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inscripciones.html">Inscripción</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ubicacion.html">Ubicación</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactos.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h2 class="text-center">Formulario de Inscripción - Conferencia de Procesamiento de Lenguaje Natural</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fullName">Nombre Completo:</label>
+                <input type="text" class="form-control" id="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Edad:</label>
+                <input type="number" class="form-control" id="age" required>
+            </div>
+            <div class="form-group">
+                <label for="number">Teléfono:</label>
+                <input type="number" class="form-control" id="number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Escribe tu Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="nationality">Nacionalidad:</label>
+                <select class="form-control" id="nationality" required>
+                    <option value="">Selecciona tu nacionalidad</option>
+                    <option value="Peruano">Peruano</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-info">Inscribirme</button>
+        </form>
+
+        <div id="confirmationTable" class="mt-4" style="display:none;">
+            <h3>Datos de Inscripción</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Edad</th>
+                        <th>Nacionalidad</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var fullName = document.getElementById('fullName').value;
+            var age = document.getElementById('age').value;
+            var number = document.getElementById('number').value;
+            var email = document.getElementById('email').value;
+            var nationality = document.getElementById('nationality').value;
+
+            if (nationality !== "Peruano") {
+                alert("Lo siento, solo se permiten inscripciones de personas de nacionalidad Peruano.");
+                return;
+            }
+
+            var tableBody = document.getElementById('tableBody');
+            var newRow = tableBody.insertRow();
+            newRow.insertCell(0).textContent = fullName;
+            newRow.insertCell(1).textContent = age;
+            newRow.insertCell(2).textContent = nationality;
+            newRow.insertCell(3).textContent = number;
+            newRow.insertCell(4).textContent = email;
+
+            document.getElementById('confirmationTable').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
